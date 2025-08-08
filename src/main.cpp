@@ -4,13 +4,16 @@
 
 using namespace std;
 
-#define SCREEN_WIDTH 1000
+#define SCREEN_WIDTH 1400
 #define SCREEN_HEIGHT 1000
+
+#define GROUND_X 0
+#define GROUND_Y 800
 
 void drawArena(Texture2D ground)
 {
 
-    DrawTextureEx(ground, {200, 200}, 1, 1, RAYWHITE);
+    DrawTextureEx(ground, {GROUND_X, GROUND_Y}, 0, 1, RAYWHITE);
 }
 
 void fullScreen()
@@ -30,7 +33,10 @@ int main()
     Texture2D ground = LoadTexture("C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/src/Images/ground.png");
     Texture2D sjwSprite = LoadTexture("C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/src/Images/sjw.jpg");
 
-    Player sjw("Sung Jin Woo", 100, 10, 2, {200, 200}, sjwSprite);
+    ground.width += 1000;
+    ground.height += 50;
+
+    Player sjw("Sung Jin Woo", 100, 10, 2, {100, 680}, sjwSprite);
 
     while (!WindowShouldClose())
     {
