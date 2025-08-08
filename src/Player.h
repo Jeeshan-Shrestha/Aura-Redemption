@@ -1,35 +1,25 @@
 #pragma once
-#include <string>
 #include <raylib.h>
+#include <string>
+#include <iostream>
 
 using namespace std;
-
-class Skill
-{
-private:
-    int skillDamage;
-    int skillCooldown;
-    string skillDescription;
-
-public:
-    int getSkillDamage();
-    int getSkillCooldown();
-    string getSkillDescription();
-};
 
 class Player
 {
 
 private:
+    string name;
     int health;
     int damage;
-    Skill skill;
+    int attackCooldown;
+    Vector2 spawnPosition;
     Texture2D playerSprite;
 
 public:
-    Player();
+    Player(string name, int health, int damage, int attackCooldown, Vector2 spawnPosition, Texture2D playerSprite);
     void Draw();
-    int damageDone();
-    int damageTaken();
-    int skillCast();
+    int attack();
+    void damageTaken(int damageReceived);
+    void skillCast();
 };

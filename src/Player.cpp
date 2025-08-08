@@ -4,24 +4,39 @@
 
 using namespace std;
 
-Player::Player()
-    : damage(10), health(100)
+Player::Player(
+    string name,
+    int health,
+    int damage,
+    int attackCooldown,
+    Vector2 spawnPosition,
+    Texture2D playerSprite)
 
+    : name(name),
+      health(health),
+      damage(damage),
+      attackCooldown(attackCooldown),
+      spawnPosition(spawnPosition),
+      playerSprite(playerSprite)
 {
 }
 
 void Player::Draw()
 {
+    DrawTextureEx(playerSprite, spawnPosition, 0, 0.5f, RAYWHITE);
 }
 
-int Player::damageDone()
+int Player::attack()
 {
+
+    return damage;
 }
 
-int Player::damageTaken()
+void Player::damageTaken(int damageReceived)
 {
+    health -= damageReceived;
 }
 
-int Player::skillCast()
+void Player::skillCast()
 {
 }
