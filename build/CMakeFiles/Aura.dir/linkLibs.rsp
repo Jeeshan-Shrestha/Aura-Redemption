@@ -1,0 +1,1 @@
+  -L"C:/Users/NITRO/Desktop/RAYLIB~1/AURA-R~1/lib"  -L"C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/}"  -lraylib -lopengl32 -lgdi32 -lwinmm -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

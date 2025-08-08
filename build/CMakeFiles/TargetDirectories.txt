@@ -1,0 +1,3 @@
+C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/build/CMakeFiles/Aura.dir
+C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/build/CMakeFiles/edit_cache.dir
+C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/build/CMakeFiles/rebuild_cache.dir

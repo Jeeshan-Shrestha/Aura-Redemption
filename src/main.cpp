@@ -1,26 +1,43 @@
 #include <raylib.h>
-#include "Player.h"
+#include "Player/Player.h"
 #include <string>
 
 using namespace std;
 
-int main()
+#define SCREEN_WIDTH 1000
+#define SCREEN_HEIGHT 1000
+
+void drawArena(Texture2D ground)
 {
 
-    constexpr int screenWidth = 1000;
-    constexpr int screenHeight = 1000;
+    DrawTextureEx(ground, {200, 200}, 1, 1, RAYWHITE);
+}
 
-    InitWindow(screenWidth, screenHeight, "Aura Redemption");
+void fullScreen()
+{
+    if (IsKeyDown(KEY_F11))
+    {
+        ToggleFullscreen();
+    }
+}
+
+int main()
+{
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Aura Redemption");
     SetTargetFPS(60);
 
+    // textures
+    Texture2D ground = LoadTexture("C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/src/Images/ground.png");
     Texture2D sjwSprite = LoadTexture("C:/Users/NITRO/Desktop/RayLibGames/Aura-Redemption v1/src/Images/sjw.jpg");
 
     Player sjw("Sung Jin Woo", 100, 10, 2, {200, 200}, sjwSprite);
 
     while (!WindowShouldClose())
     {
+        fullScreen();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(WHITE);
+        drawArena(ground);
         sjw.Draw();
         EndDrawing();
     }
