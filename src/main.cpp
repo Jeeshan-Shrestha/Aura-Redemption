@@ -1,21 +1,22 @@
-#include <raylib.h>
+#include<raylib.h>
+#include "Game.h"
+Game *game = nullptr;
+
+
 
 int main()
 {
-    const Color darkGreen = {20, 160, 133, 255};
+    game = new Game();
+    game->Init("My Game", 1800, 900, RAYWHITE);
 
-    constexpr int screenWidth = 800;
-    constexpr int screenHeight = 600;
-
-    InitWindow(screenWidth, screenHeight, "Aura Redemption");
-    SetTargetFPS(60);
-
-    while (!WindowShouldClose())
+    while (game->running())
     {
-        BeginDrawing();
-        ClearBackground(darkGreen);
-        EndDrawing();
+        game->HandleInput();
+        game->Update();
+        game->Render();
     }
 
-    CloseWindow();
+    game->Cleanup();
+    delete game;
+    return 0;
 }
