@@ -10,7 +10,7 @@ using namespace std;
 #define GROUND_X 0
 #define GROUND_Y 800
 
-void drawArena(Texture2D ground)
+void drawArena(Texture2D &ground)
 {
 
     DrawTextureEx(ground, {GROUND_X, GROUND_Y}, 0, 1, RAYWHITE);
@@ -44,7 +44,8 @@ int main()
         BeginDrawing();
         ClearBackground(WHITE);
         drawArena(ground);
-        sjw.Draw();
+        sjw.draw();
+        sjw.playerMovement();
         EndDrawing();
     }
 

@@ -13,12 +13,14 @@ protected:
     int health;
     int damage;
     int attackCooldown;
-    Vector2 spawnPosition;
-    Texture2D playerSprite;
 
 public:
-    Player(string name, int health, int damage, int attackCooldown, Vector2 spawnPosition, Texture2D playerSprite);
-    void Draw();
+    Texture2D playerSprite;
+    Vector2 position;
+    bool isFacingRight = true;
+    Player(string name, int health, int damage, int attackCooldown, Vector2 position, Texture2D playerSprite);
+    void draw();
+    void playerMovement();
     int attack();
     void damageTaken(int damageReceived);
     void skillCast();

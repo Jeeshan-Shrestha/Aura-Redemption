@@ -9,21 +9,39 @@ Player::Player(
     int health,
     int damage,
     int attackCooldown,
-    Vector2 spawnPosition,
+    Vector2 position,
     Texture2D playerSprite)
 
     : name(name),
       health(health),
       damage(damage),
       attackCooldown(attackCooldown),
-      spawnPosition(spawnPosition),
+      position(position),
       playerSprite(playerSprite)
 {
 }
 
-void Player::Draw()
+void Player::playerMovement()
 {
-    DrawTextureEx(playerSprite, spawnPosition, 0, 0.5f, RAYWHITE);
+    if (IsKeyDown(KEY_A))
+    {
+        if (isFacingRight)
+        {
+            isFacingRight = false;
+            playerSprite.width -= 2 * playerSprite.width;
+        }
+        position.x -= 10;
+    }
+
+    if (IsKeyDown(KEY_D))
+    {
+        position.x += 10;
+    }
+}
+
+void Player::draw()
+{
+    DrawTextureEx(playerSprite, position, 0, 0.5f, RAYWHITE);
 }
 
 int Player::attack()
