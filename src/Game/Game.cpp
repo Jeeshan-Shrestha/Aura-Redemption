@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "ball.h"
+#include "../ball/ball.h"
 Ball *ball = new Ball(0,0,20,RED);
 
 

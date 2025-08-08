@@ -11,7 +11,7 @@ include_directories(${INCLUDE_DIR})
 
 link_directories(${LIB_DIR})
 
-add_executable(Aura src/main.cpp src/Player.cpp src/Game.cpp src/ball.cpp)
+add_executable(Aura src/main.cpp src/Player/Player.cpp src/Game/Game.cpp src/ball/ball.cpp)
 
 
 target_link_libraries(Aura raylib opengl32 gdi32 winmm)
