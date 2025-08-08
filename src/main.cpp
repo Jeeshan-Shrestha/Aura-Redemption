@@ -1,4 +1,3 @@
-#include<raylib.h>
 #include "Game.h"
 Game *game = nullptr;
 
@@ -7,7 +6,7 @@ Game *game = nullptr;
 int main()
 {
     game = new Game();
-    game->Init("My Game", 1800, 900, RAYWHITE);
+    game->Init("My Game");
 
     while (game->running())
     {

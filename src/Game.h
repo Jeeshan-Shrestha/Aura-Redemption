@@ -8,12 +8,14 @@ class Game
     private:
         bool isRunning;
         Color BgColor;
+        int windowWidth;
+        int windowHeight;
 
 
     public:
     Game();
     ~Game();
-    void Init(const char* title,int width, int height,Color bgColor);
+    void Init(const char* title);
     void HandleInput();
     void Update();
     void Render();
