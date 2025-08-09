@@ -1,9 +1,11 @@
 #include "Game.h"
 #include "../ball/ball.h"
-Ball *ball = new Ball(0,0,20,RED);
+#include "../Button/Button.h"
+#include<raylib.h>
 
 
-
+Button *button1 = nullptr; 
+Button *button2 = nullptr; 
 Game::Game() : isRunning(true)
 {
     BgColor = BLACK;
@@ -15,17 +17,18 @@ Game::~Game()
 
 void Game::Init(const char* title)
 {   
-    int monitor = GetCurrentMonitor();
-    int width = GetMonitorWidth(monitor);
-    int height = GetMonitorHeight(monitor);
-    windowHeight = height;
-    windowWidth = width;
-    SetConfigFlags(FLAG_FULLSCREEN_MODE);
-    InitWindow(width, height, title); // Initialize the window with the monitor's width and height
+    // int monitor = GetCurrentMonitor();
+    // int width = GetMonitorWidth(monitor);
+    // int height = GetMonitorHeight(monitor);
+    windowHeight = 1080;
+    windowWidth = 1960;
+    InitWindow(windowWidth-50, windowHeight-50, title); // Initialize the window with the monitor's width and height
 
-    SetTargetFPS(GetMonitorRefreshRate(monitor)); // Set the game to run at 60 frames per second
+    SetTargetFPS(60); // Set the game to run at 60 frames per second
     ClearBackground(BgColor);
     isRunning = true;
+    button1 = new Button(windowWidth/2-250/2,windowHeight/2.0-100/2,250,100,GREEN,"START");
+    button2 = new Button(400,200,250,100,BLUE,"QUIT");
 }
 
 void Game::HandleInput()
@@ -38,14 +41,15 @@ void Game::HandleInput()
 
 void Game::Update()
 {
-    ball->update(); // Update the ball's position based on input
+    
 }
 
 void Game::Render()
 {
     BeginDrawing();
     ClearBackground(BgColor);
-    ball->draw(); // Draw the ball
+    button1->Draw();
+    button2->Draw();
     EndDrawing();
 }
 
